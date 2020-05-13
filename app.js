@@ -12,7 +12,7 @@ function load_js_data(src) {
 }
 
 (async () => {
-  const data = await load_js_data('data.json.js')
+  const data = await load_js_data('_data.json.js')
   console.log(data)
 
   const max_row = 3000
@@ -25,6 +25,7 @@ function load_js_data(src) {
   const table = $('#main_container table').DataTable({
     data: data_preview,
     columns: column_names_dict,
+    colReorder: true,
     responsive: false,
     scrollY: "500px",
     scrollX: true,
