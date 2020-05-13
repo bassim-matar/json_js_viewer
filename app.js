@@ -12,7 +12,7 @@ function load_js_data(src) {
 }
 
 (async () => {
-  const data = await load_js_data('_data.json.js')
+  const data = await load_js_data('data.json.js')
   console.log(data)
 
   const max_row = 3000
