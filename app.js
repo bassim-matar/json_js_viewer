@@ -1,5 +1,5 @@
 console.log(data)
-const max_row = 3000
+const max_row = 5000
 column_names = data.shift()
 data = data.slice(0, max_row)
 column_names_dict = []
