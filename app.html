@@ -22,10 +22,13 @@
     loader.load('lib/jquery/', ['jquery.min.js', 'jquery-ui.min.js', 'jquery-ui.min.css', 'themes/base/jquery-ui.css'])
     loader.load('lib/dataTables/', ['dataTables.min.js', 'css/dataTables.min.css'])
     loader.load('lib/dataTables/', ['dataTables.jqueryui.min.js', 'css/dataTables.jqueryui.min.css'])
-    loader.load('lib/dataTables/', ['dataTables.bootstrap.min.js', 'dataTables.responsive.min.js', 
-      'responsive.bootstrap.min.js', 'dataTables.fixedHeader.min.js', 'css/bootstrap.min.css',
-      'css/dataTables.bootstrap.min.css', 'css/fixedHeader.bootstrap.min.css', 'css/responsive.bootstrap.min.css'
+    loader.load('lib/dataTables/', ['dataTables.bootstrap.min.js', 'dataTables.responsive.min.js', 'dataTables.fixedColumns.min.js',
+      'responsive.bootstrap.min.js', /*'dataTables.fixedHeader.min.js',*/
+      'css/bootstrap.min.css',
+      'css/dataTables.bootstrap.min.css', /*'css/fixedHeader.bootstrap.min.css',*/ 
+      'css/responsive.bootstrap.min.css', 'css/fixedColumns.dataTables.min.css'
     ])
+    loader.load('', ['main.css'])
     //loader.load('module/', ['Utils.js'])
     //loader.load('module/table/table', ['.html.js'])
   </script>
@@ -33,9 +36,14 @@
 <body>
   <div class="loading"></div>
   <div id="main_container">
-    <table class="table table-striped table-bordered nowrap" style="width:100%"></table>
+    <div class="table_wrap">
+      <table class="stripe row-border order-column" style="width:100%"></table>
+    </div>
+    <div class="btn_div">
+      <button class="download_csv">Download CSV</button>
+      <button class="download_json_js">Download JSON JS</button>
+    </div>
   </div>
-  <script src="data.json.js"></script>
   <script>
     loader.load('', ['app.js'])
   </script>
