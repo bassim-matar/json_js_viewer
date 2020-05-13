@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Show data</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="theme-color" content="#ffffff" id="meta_theme_color">
+  <style>
+    .loading{
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #ddd url(media/img/loading.gif) no-repeat 50% 50%;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <script src="module/Loader.js"></script>
+  <script>
+    const loader = new Loader({version: 2})
+    loader.load('lib/', ['mustache.min.js'])
+    loader.load('lib/jquery/', ['jquery.min.js', 'jquery-ui.min.js', 'jquery-ui.min.css', 'themes/base/jquery-ui.css'])
+    loader.load('lib/dataTables/', ['dataTables.min.js', 'css/dataTables.min.css'])
+    loader.load('lib/dataTables/', ['dataTables.jqueryui.min.js', 'css/dataTables.jqueryui.min.css'])
+    loader.load('lib/dataTables/', ['dataTables.bootstrap.min.js', 'dataTables.responsive.min.js', 
+      'responsive.bootstrap.min.js', 'dataTables.fixedHeader.min.js', 'css/bootstrap.min.css',
+      'css/dataTables.bootstrap.min.css', 'css/fixedHeader.bootstrap.min.css', 'css/responsive.bootstrap.min.css'
+    ])
+    //loader.load('module/', ['Utils.js'])
+    //loader.load('module/table/table', ['.html.js'])
+  </script>
+</head>
+<body>
+  <div class="loading"></div>
+  <div id="main_container">
+    <table class="table table-striped table-bordered nowrap" style="width:100%"></table>
+  </div>
+  <script src="data.json.js"></script>
+  <script>
+    loader.load('', ['app.js'])
+  </script>
+</body>
+<script>
+  function is_es6(){
+    "use strict"
+    try{
+      eval("var foo = (x)=>x+1")
+      eval("class foo{ constructor(){} }")
+      eval("window.localStorage")
+  } catch(e){ return false }
+    return true
+  }
+  if (!is_es6()){
+    document.body.innerHTML = 'Not working in this browser. Please use another browser like Chrome or Firefox.'
+  }
+</script>
+</html>
